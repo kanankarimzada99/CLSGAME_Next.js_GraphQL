@@ -1,17 +1,23 @@
 import * as React from 'react'
 import Link from 'next/link'
-import Layout from '../components/Layout'
+import styled from 'styled-components'
+import ContentWrapper from '../components/styled/ContentWrapper'
+import CircularButton from '../components/CircularButton'
 
-const AboutPage: React.FunctionComponent = () => (
-  <Layout title="About | Next.js + TypeScript Example">
-    <h1>About</h1>
-    <p>This is the about page</p>
-    <p>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-    </p>
-  </Layout>
+const ButtonWrapper = styled.div`
+  flex: 1;
+  display: flex;
+`
+
+const ClientPage: React.FunctionComponent = () => (
+  <ContentWrapper>
+    <ButtonWrapper>
+      <CircularButton backgroundColor={'#ff9559'} buttonText={'-'} />
+    </ButtonWrapper>
+    <ButtonWrapper>
+      <CircularButton backgroundColor={'#007aff'} buttonText={'+'} />
+    </ButtonWrapper>
+  </ContentWrapper>
 )
 
-export default AboutPage
+export default ClientPage
