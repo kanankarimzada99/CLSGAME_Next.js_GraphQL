@@ -41,9 +41,30 @@ class DashboardPage extends React.Component<null, States> {
     minusCount: 0,
   }
 
-  componentDidMount () {
-    firebase.database().ref('counts').on('value', snap => {
+  recordStarted = false
+  listenerRef = null
 
+  componentDidMount () {
+    const currentTs = new Date().getTime()
+    this.listenerRef = firebase.database().ref('counts')
+    this.listenerRef.orderByKey().startAt(currentTs.toString()).on('child_added', snap => {
+      const { plusCount, minusCount } = this.state
+      const { type } = snap.val()
+      if (type === 'minus') {
+        this.setState({
+          minusCount: minusCount + 1
+        })
+      } else {
+        this.setState({
+          plusCount: plusCount + 1
+        })
+      }
+      if (!this.recordStarted) {
+        this.recordStarted = true
+        setTimeout(() => {
+          this.listenerRef.off()
+        }, 5000)
+      }
     })
   }
   
