@@ -19,18 +19,14 @@ const Button = styled.div`
 
 type Props = {
   backgroundColor: string,
-  buttonText: string
+  buttonText: string,
+  onClick: () => void
 }
 
-const CircularButton: React.FunctionComponent<Props> = ({ backgroundColor, buttonText }) => {
-  const onClick = () => {
-
-  }
-  return(
-    <Button backgroundColor={backgroundColor} onClick={onClick} >
-      {buttonText}
-    </Button>
-  )
-}
+const CircularButton: React.FunctionComponent<Props> = ({ backgroundColor, buttonText, onClick }) => (
+  <Button backgroundColor={backgroundColor} onClick={onClick} >
+    {buttonText}
+  </Button>
+)
 
 export default CircularButton

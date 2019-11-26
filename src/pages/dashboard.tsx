@@ -2,6 +2,8 @@ import * as React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import ContentWrapper from '../components/styled/ContentWrapper'
+import firebase from '../helpers/firebase'
+// import firebase from 'firebase'
 import { NextPage } from 'next'
 
 const DashboardWrapper = styled(ContentWrapper)`
@@ -27,27 +29,32 @@ const CountDisplay = styled.div`
   color: #fff;
 `
 
+type States = {
+  plusCount: number,
+  minusCount: number,
+}
 
-class DashboardPage extends React.Component {
+class DashboardPage extends React.Component<null, States> {
+
+  state = {
+    plusCount: 0,
+    minusCount: 0,
+  }
 
   componentDidMount () {
-    
-  }
+    firebase.database().ref('counts').on('value', snap => {
 
-  renderCount = (backgroundColor) => {
-    return (
-      <CountDisplay backgroundColor={backgroundColor}>
-        7
-      </CountDisplay>
-    )
+    })
   }
+  
   render () {
+    const { plusCount, minusCount } = this.state
     return (
       <DashboardWrapper>
         <Row></Row>
         <Row>
-          <CountDisplay backgroundColor={'#ff9559'}>7</CountDisplay>
-          <CountDisplay backgroundColor={'#007aff'}>0</CountDisplay>
+          <CountDisplay backgroundColor={'#ff9559'}>{minusCount}</CountDisplay>
+          <CountDisplay backgroundColor={'#007aff'}>{plusCount}</CountDisplay>
         </Row>
         <Row>
           <div className="black center">

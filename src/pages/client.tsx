@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
+import firebase from '../helpers/firebase'
 import ContentWrapper from '../components/styled/ContentWrapper'
 import CircularButton from '../components/CircularButton'
 
@@ -9,15 +10,24 @@ const ButtonWrapper = styled.div`
   display: flex;
 `
 
-const ClientPage: React.FunctionComponent = () => (
-  <ContentWrapper>
-    <ButtonWrapper>
-      <CircularButton backgroundColor={'#ff9559'} buttonText={'-'} />
-    </ButtonWrapper>
-    <ButtonWrapper>
-      <CircularButton backgroundColor={'#007aff'} buttonText={'+'} />
-    </ButtonWrapper>
-  </ContentWrapper>
+const ClientPage: React.FunctionComponent = () => {
+  const onPress = (type) => {
+    const timestamp = new Date().getTime()
+    firebase.database().ref(`counts/${timestamp}`).set({
+      type,
+      timestamp
+    })
+  }
+  return (
+    <ContentWrapper>
+      <ButtonWrapper>
+        <CircularButton backgroundColor={'#ff9559'} buttonText={'-'} onClick={() => onPress('minus')} />
+      </ButtonWrapper>
+      <ButtonWrapper>
+        <CircularButton backgroundColor={'#007aff'} buttonText={'+'} onClick={() => onPress('plus')} />
+      </ButtonWrapper>
+    </ContentWrapper>
 )
+}
 
 export default ClientPage
