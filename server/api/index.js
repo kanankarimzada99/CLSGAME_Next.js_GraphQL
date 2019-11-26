@@ -1,31 +1,20 @@
 
 const express = require('express')
-const router = express.Router()
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
 
-router.get('/healthcheck', (req, res) => res.send('OK'))
-
-router.get('/article', async (req, res) => {
-  try {
-    const apiUrl = config.get('server.articleApiBaseUrl')
-    const tagId = R.path(['query', 'tagId'], req)
-    const offset = R.path(['query', 'offset'], req)
-    const limit = R.path(['query', 'limit'], req)
-    if (tagId) {
-      const { data } = await axios.get(`${apiUrl}/feed/tag/${tagId}`, {
-        params: { offset, limit },
-      })
-      return res.json(data)
-    } else {
-      res.status(404).send('Tag Id is Empty')
-    }
-  } catch (e) {
-    console.error(e)
-    res.status(404).send('Not found')
+var schema = buildSchema(`
+  type Query {
+    hello: String
   }
-})
+`);
 
-router.get('*', (req, res) => {
-  res.status(404).send('Not found')
-})
+var root = {
+  hello: () => "World"
+};
 
-module.exports = router
+module.exports = graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+})

@@ -3,7 +3,7 @@ const next = require('next')
 
 // const config = require('../config')
 const routes = require('../src/routes')
-const api = require('./api')
+const graphql = require('./api')
 // const logger = require('./utils/logger')
 
 // const stage = config.get('env')
@@ -18,8 +18,7 @@ const handler = routes.getRequestHandler(app)
 
 app.prepare().then(() => {
   const server = express()
-
-  server.use('/api', api)
+  server.use('/graphql', graphql)
 
   server.get('*', (req, res) => {
     return handler(req, res)
