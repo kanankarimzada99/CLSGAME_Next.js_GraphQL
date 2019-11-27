@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/user/.nvm/versions/node/v11.0.0/bin/node /usr/local/bin/yarn add -D @babel/typescript
+  /Users/user/.nvm/versions/node/v11.0.0/bin/node /usr/local/bin/yarn add @types/graphql-type-long
 
 PATH: 
   /Users/user/.nvm/versions/node/v11.0.0/bin:/Users/user/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/user/Library/Android/sdk/emulator:/Users/user/Library/Android/sdk/tools:/Users/user/Library/Android/sdk/tools/bin:/Users/user/Library/Android/sdk/platform-tools:/usr/local/mongodb/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@babel%2ftypescript: Not found
+  Error: https://registry.yarnpkg.com/@types%2fgraphql-type-long: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66255:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:129397:22)
       at Request.emit (events.js:182:13)
@@ -56,6 +56,7 @@ npm manifest:
       "@babel/cli": "^7.7.4",
       "@babel/core": "^7.7.4",
       "@babel/node": "^7.7.4",
+      "@babel/plugin-proposal-class-properties": "^7.7.4",
       "@babel/plugin-transform-typescript": "^7.7.4",
       "@babel/preset-env": "^7.7.4",
       "@types/node": "^12.7.8",
@@ -629,6 +630,14 @@ Lockfile:
     integrity sha512-AF79FsnWFxjlaosgdi421vmYG6/jg79bVD0dpD44QdgobzHKuLZ6S3vl8la9qIeSwGi8i1fS0O1mfuDAAdo1/A==
     dependencies:
       "@babel/helper-create-class-features-plugin" "^7.5.5"
+      "@babel/helper-plugin-utils" "^7.0.0"
+  
+  "@babel/plugin-proposal-class-properties@^7.7.4":
+    version "7.7.4"
+    resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.7.4.tgz#2f964f0cb18b948450362742e33e15211e77c2ba"
+    integrity sha512-EcuXeV4Hv1X3+Q1TsuOmyyxeTRiSqurGJ26+I/FW1WbymmRRapVORm6x1Zl3iDIHyRxEs+VXWp6qnlcfcJSbbw==
+    dependencies:
+      "@babel/helper-create-class-features-plugin" "^7.7.4"
       "@babel/helper-plugin-utils" "^7.0.0"
   
   "@babel/plugin-proposal-dynamic-import@^7.5.0":
