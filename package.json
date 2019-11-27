@@ -17,6 +17,7 @@
     "next-routes": "^1.4.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+    "recharts": "^1.8.5",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {

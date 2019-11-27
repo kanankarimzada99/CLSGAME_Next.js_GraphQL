@@ -21,10 +21,10 @@ const ClientPage: React.FunctionComponent = () => {
   return (
     <ContentWrapper>
       <ButtonWrapper>
-        <CircularButton backgroundColor={'#ff9559'} buttonText={'-'} onClick={() => onPress('minus')} />
+        <CircularButton backgroundColor={'#ff9559'} buttonText={'-'} onClick={() => onPress('orange')} />
       </ButtonWrapper>
       <ButtonWrapper>
-        <CircularButton backgroundColor={'#007aff'} buttonText={'+'} onClick={() => onPress('plus')} />
+        <CircularButton backgroundColor={'#007aff'} buttonText={'+'} onClick={() => onPress('blue')} />
       </ButtonWrapper>
     </ContentWrapper>
 )
