@@ -1,5 +1,6 @@
 const express = require('express')
 const next = require('next')
+const envConfig = require('dotenv').config()
 
 // const config = require('../config')
 const routes = require('../src/routes')
@@ -9,8 +10,8 @@ const graphql = require('./api')
 // const stage = config.get('env')
 // const host = config.get('server.host')
 // const port = config.get('server.port')
-const host = 'localhost'
-const port = 3000
+const host = process.env.ROOT_URL
+const port = process.env.PORT
 
 // const isDevMode = stage === 'local'
 const app = next({ dir: './src', dev: true })
