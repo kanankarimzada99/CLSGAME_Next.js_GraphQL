@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "nodemon ./server",
     "build": "next build",
+    "build:docker": "docker-compose up --remove-orphans --build",
     "start": "NODE_ENV=production ts-node ./server",
     "type-check": "tsc"
   },
