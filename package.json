@@ -2,9 +2,9 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon ./server/index.tsx",
+    "dev": "nodemon ./server",
     "build": "next build",
-    "start": "NODE_ENV=production ts-node ./server/index.tsx",
+    "start": "NODE_ENV=production ts-node ./server",
     "type-check": "tsc"
   },
   "dependencies": {
@@ -24,6 +24,12 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-typescript": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
     "@types/node": "^12.7.8",
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",

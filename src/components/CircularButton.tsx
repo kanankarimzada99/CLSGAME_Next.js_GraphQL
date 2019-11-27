@@ -1,7 +1,5 @@
 import * as React from 'react'
-import ListItem from './ListItem'
 import styled from 'styled-components'
-import { User } from '../interfaces'
 
 const Button = styled.div`
   cursor: pointer;
