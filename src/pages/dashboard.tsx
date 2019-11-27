@@ -129,7 +129,7 @@ class DashboardPage extends React.Component<null, States> {
     return (
       <LineChart
         width={700} height={350} data={graphData}
-        margin={{ bottom: 25, right: 10 }}
+        margin={{ bottom: 25, right: 10, top: 25 }}
       >
         <Line type="monotone" dataKey="orange" stroke="#ff9559" />
         <Line type="monotone" dataKey="blue" stroke="#007aff" />
