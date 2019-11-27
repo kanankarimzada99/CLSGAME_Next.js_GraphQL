@@ -1,16 +1,24 @@
 
-const express = require('express')
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 
 var schema = buildSchema(`
+  type Click {
+    timestamp: Int
+    type: String
+  }
   type Query {
-    hello: String
+    hello: Click
   }
 `);
 
 var root = {
-  hello: () => "World"
+  hello: () => ({
+    id: 'String',
+    name: 'String',
+    job_title: 'String',
+    email: 'String'
+  })
 };
 
 module.exports = graphqlHTTP({

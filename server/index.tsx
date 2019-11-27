@@ -20,11 +20,11 @@ app.prepare().then(() => {
   const server = express()
   server.use('/graphql', graphql)
 
-  server.get('*', (req, res) => {
+  server.get('*', (req: any, res: any) => {
     return handler(req, res)
   })
 
-  server.listen(port, host, err => {
+  server.listen(port, host, (err: any) => {
     if (err) throw err
 
     // console.log(`[MAIN SERVER] APP_ENV: ${stage}`)
