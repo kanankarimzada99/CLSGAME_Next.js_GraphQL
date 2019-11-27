@@ -145,7 +145,7 @@ class DashboardPage extends React.Component<null, States> {
   render () {
     const { orangeCount, blueCount } = this.state
     // TODO: move to config file
-    const url = "http://ec2-18-221-52-183.us-east-2.compute.amazonaws.com/client"
+    const url = "http://ec2-13-59-81-130.us-east-2.compute.amazonaws.com/client"
     return (
       <DashboardWrapper>
         <Row>{this.renderLineChart()}</Row>
