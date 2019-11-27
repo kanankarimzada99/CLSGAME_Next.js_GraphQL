@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
+import QRCode from 'qrcode.react';
 import { LineChart, Label, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 import ContentWrapper from '../components/styled/ContentWrapper'
@@ -143,6 +144,8 @@ class DashboardPage extends React.Component<null, States> {
   
   render () {
     const { orangeCount, blueCount } = this.state
+    // TODO: move to config file
+    const url = "http://ec2-18-221-52-183.us-east-2.compute.amazonaws.com/client"
     return (
       <DashboardWrapper>
         <Row>{this.renderLineChart()}</Row>
@@ -152,8 +155,11 @@ class DashboardPage extends React.Component<null, States> {
         </Row>
         <Row>
           <div className="black center">
-            Please go to <a href="https://game.clpsec.com/client">https://game.clpsec.com/client</a> to join the game.
+            Please go to <a href={url}>{url}</a> to join the game.
           </div>
+        </Row>
+        <Row>
+          <QRCode value={url} />
         </Row>
       </DashboardWrapper>
     )
