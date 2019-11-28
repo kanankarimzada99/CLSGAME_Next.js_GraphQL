@@ -1,54 +1,26 @@
-# TypeScript Next.js example
+# clp-game
 
 This is a really simple project that show the usage of Next.js with TypeScript.
 
-## How to use it?
+## What is the Tech stack?
 
-### Using `create-next-app`
+Front End: NextJs, ReactJS, Typescript, GraphQL
 
-Execute [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) with [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) or [npx](https://github.com/zkat/npx#readme) to bootstrap the example:
+Back End: nodeJS, expressJs, Typescript, GraphQL
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
+Database: Firebase realtime database
+
+Cloud service: AWS EC2, Firebase
 
 ### Download manually
-
-Download the example:
-
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-typescript
-cd with-typescript
-```
 
 Install it and run:
 
 ```bash
-npm install
-npm run dev
-# or
-yarn
-yarn dev
+yarn && yarn dev
 ```
 
-## The idea behind the example
+## To be improved
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declaratons for React and Node.
-
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
-
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+ * [ ] Move config to config file, or .env
+ * [ ] Use GraphQL Subscriptions as web socket instead of using Firebase socket directly. Ref.: https://www.apollographql.com/docs/react/data/subscriptions/
