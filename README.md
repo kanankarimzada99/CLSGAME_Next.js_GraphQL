@@ -36,7 +36,7 @@ Cloud service: AWS EC2, Firebase
 
 ## To be improved
 
- * [ ] Move config to config file, or .env
+ * [ ] Move config to config file, or .env, e.g. host domain, firebase config
  * [ ] Make `yarn build` successful
  * [ ] Reduce load time to the application, e.g. use aws server in asia region
  * [ ] Make CSS ready on server side before render to client side
